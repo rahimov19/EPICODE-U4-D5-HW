@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group Decider</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="norm.css" />
+  </head>
+  <body>
+    <h1>TEAM GENERATOR</h1>
+    <div id="page">
+      <div id="leftside">
+        <div id="top">
+          <div id="addmember">
+            <p>Add Member</p>
+            <div id="input">
+              <input type="text" placeholder="Name" /> <button>Add</button>
+            </div>
+          </div>
+          <div id="addteam">
+            <p>Teams</p>
+            <div id="teaminput">
+              <button>-</button><input type="number" id="numberofteams" placeholder="1" disabled></input
+              ><button>+</button>
+            </div>
+          </div>
+        </div>
+        <div id="down">
+          <div id="members">
+            <p>NAme 1</p>
+            <p>name2</p>
+          </div>
+          <div id="downbuttons">
+            <button id="assign">Assign Member</button>
+            <button id="reset">Reset</button>
+          </div>
+        </div>
+      </div>
+      <div id="rightside">
+        <div class="team">
+          <h2>Team 1</h2>
+          <div class="teammembers">
+            <p>n1</p>
+            <p>n2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
