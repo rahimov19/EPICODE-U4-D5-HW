@@ -39,6 +39,7 @@ body {
 }
 .team {
   width: 33%;
+  /* height: 20%; */
 }
 #down {
   display: flex;
