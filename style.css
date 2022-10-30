@@ -1,12 +1,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,500;1,800&display=swap");
-
+html {
+  height: 100%;
+}
 h1 {
   padding-left: 13.5%;
+  text-shadow: 2px 2px 2px #087bac;
   /* font-size: 2em; */
 }
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: #f7f9fa;
+  background-color: #88d7ff;
+}
+.bg {
+  animation: slide 10s ease-in-out infinite alternate;
+  background-image: linear-gradient(
+    -60deg,
+    #a29abc 10%,
+    #62bc11 10%,
+    #c292bc 50%,
+    #087bac 50%
+  );
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 18s;
+}
+
+.bg3 {
+  animation-duration: 20s;
+}
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(-55%);
+    transform: scale(150%);
+  }
+
+  100% {
+    transform: translateX(25%);
+    transform: translateY(-100%);
+  }
 }
 #page {
   width: 80%;
@@ -56,11 +100,12 @@ body {
   padding-inline: 2%;
 }
 button {
-  background-color: #697cf7;
+  background-color: #334df7;
   border: none;
   border-radius: 5px;
   color: aliceblue;
   font-weight: 600;
+  cursor: pointer;
 }
 #teaminput button {
   width: 30px;
@@ -77,13 +122,17 @@ button {
   width: 20%;
 }
 #assign {
-  width: 80%;
+  width: 40%;
+  height: 30px;
+}
+#assignEveryone {
+  width: 40%;
   height: 30px;
 }
 #reset {
   width: 15%;
   height: 30px;
-  background-color: #9d4547;
+  background-color: #af2427;
 }
 #downbuttons {
   display: flex;
@@ -120,22 +169,90 @@ button {
 }
 .teammembers p {
   text-align: start;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.395);
+  border-bottom: 1px solid rgba(0, 78, 204, 0.718);
   padding-bottom: 5%;
-  color: rgba(0, 0, 0, 0.604);
+  color: rgba(0, 0, 0, 0.847);
+  background-color: rgba(250, 183, 214, 0.351);
+  border-radius: 0 10px 0 10px;
+  padding-left: 10px;
+  padding-top: 5px;
+  color: rgb(62, 0, 0);
+  text-shadow: 1px 1px 1px rgba(126, 0, 0, 0.567);
 }
 
+.wrapper {
+  margin-top: 10px;
+  padding-block: 5px;
+  text-align: center;
+  width: 50px;
+  /* height: 20px; */
+}
+.awrapper {
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s;
+}
+
+.awrapper span {
+  position: relative;
+  z-index: 2;
+}
+
+.awrapper:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #af2427;
+  transition: all 0.35s;
+}
+
+.awrapper:hover {
+  color: #fff;
+}
+
+.awrapper:hover:after {
+  width: 100%;
+}
+@keyframes button {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
 #members p {
   text-align: start;
   border-bottom: 1px solid rgba(0, 0, 0, 0.395);
   padding-bottom: 2%;
-  color: rgba(0, 0, 0, 0.604);
+  /* color: rgba(255, 255, 255, 0.847); */
+  background-color: rgba(250, 183, 214, 0.351);
+  border-radius: 0 10px 0 10px;
+  padding-left: 10px;
+  padding-top: 8px;
+  color: rgb(31, 0, 67);
+  text-shadow: 1px 1px 1px rgba(126, 0, 0, 0.567);
 }
 #teaminput input {
   width: 40px;
   height: 30px;
   border: none;
   text-align: center;
+  border-radius: 20%;
+  /* margin-inline: 2px; */
 }
 
 input[type="number"] {

@@ -10,6 +10,7 @@ let cardsField = document.querySelector("#rightside");
 const cards = document.querySelectorAll(".team");
 let createDiv = document.createElement("div");
 let createP = document.createElement("p");
+let assignEveryoneButton = document.querySelector("#assignEveryone");
 
 let resetState = function () {
   cardsField.innerHTML = "";
@@ -52,56 +53,58 @@ let addName = function () {
   inputName.value = "";
 };
 addButton.addEventListener("click", addName);
+inputName.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    // event.preventDefault();
+    document.querySelector("#input button").click();
+  }
+});
+let teamIndex = 0;
+let assignOne = function () {
+  let members = document.querySelectorAll("#members p");
+  let cards = document.querySelectorAll("#rightside div.teammembers");
+  let randomIndex = Math.floor(Math.random() * members.length);
+  let randomMember = members[randomIndex];
+  let randomMemberName = randomMember.innerText;
+  // let createName = document.createElement("p");
+  let createButton = document.createElement("div");
+  createButton.classList.add("wrapper");
+  let createA = document.createElement("a");
+  createA.classList.add("awrapper");
+  createButton.appendChild(createA);
+  let createSpan = document.createElement("span");
+  createA.appendChild(createSpan);
+  createSpan.classList.add("spanwrapper");
+  if (teamIndex === cards.length) {
+    teamIndex = 0;
+  }
+  let createButtons = document.querySelectorAll(".teammembers div");
+  for (i = 0; i < createButtons.length; i++) {
+    createButtons[i].addEventListener("click", function nameBack(e) {
+      membersField.appendChild(document.createElement("p")).innerText =
+        e.target.innerText;
+    });
+    createButtons[i].addEventListener("click", function handleClick(event) {
+      event.currentTarget.remove();
+    });
+  }
+  // movedName = cards[teamIndex].appendChild(createName);
+  movedName = cards[teamIndex].appendChild(createButton);
 
-//  {
-//   let lengthOfPeople = document.querySelectorAll("#members p").length;
-//   let lengthOfTeams = document.querySelectorAll(
-//     "#rightside div.teammembers"
-//   ).length;
-//   let teamsNumber = document.querySelectorAll(".teammembers");
-//   let ratio = Math.ceil(lengthOfPeople / lengthOfTeams);
-//   //   let memberNumber = teamsNumber.querySelectorAll("p");
-//   for (i = 0; i < lengthOfPeople; i++) {
-//     if (teamsNumber[i].querySelectorAll("p").length <= ratio) {
-//       let allMembers = document.querySelector("#members");
-//       let firstMember = allMembers.firstChild;
-//       firstName = firstMember.innerText;
-//       //   let card = document.querySelectorAll("#rightside div.teammembers");
-//       let movedName = document
-//         .querySelectorAll("#rightside div.teammembers")
-//         [Math.floor(Math.random() * numberOfTeams.value)].appendChild(
-//           document.createElement("p")
-//         );
-//       movedName.innerText = firstName;
-//       allMembers.firstChild.remove();
-//     } else {
-//       let allMembers = document.querySelector("#members");
-//       let firstMember = allMembers.firstChild;
-//       firstName = firstMember.innerText;
-//       //   let card = document.querySelectorAll("#rightside div.teammembers");
-//       let movedName = document
-//         .querySelectorAll("#rightside div.teammembers")
-//         [Math.floor(Math.random() * numberOfTeams.value + 1)].appendChild(
-//           document.createElement("p")
-//         );
-//       movedName.innerText = firstName;
-//       allMembers.firstChild.remove();
-//     }
-//   }
-let assignEveryone = function () {
-  let allMembers = document.querySelector("#members");
-  let firstMember = allMembers.firstChild;
-  firstName = firstMember.innerText;
-  //   let card = document.querySelectorAll("#rightside div.teammembers");
-  let movedName = document
-    .querySelectorAll("#rightside div.teammembers")
-    [Math.floor(Math.random() * numberOfTeams.value)].appendChild(
-      document.createElement("p")
-    );
-  movedName.innerText = firstName;
-  allMembers.firstChild.remove();
+  createSpan.innerText = randomMemberName;
+  randomMember.remove();
+  teamIndex++;
 };
-// if ()
+// createButton.addEventListener("click", remove());
+assignButton.addEventListener("click", assignOne);
 
-assignButton.addEventListener("click", assignEveryone);
-window.onload(resetState());
+let assignEveryone = function () {
+  let members = document.querySelectorAll("#members p");
+  while (members.length > 0) {
+    assignOne();
+  }
+};
+assignEveryoneButton.addEventListener("click", assignEveryone);
+window.onload = function () {
+  resetState();
+};
