@@ -68,7 +68,7 @@ body {
 #addmember {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  /* width: 70%; */
 }
 #top {
   display: flex;
@@ -109,7 +109,7 @@ button {
 }
 #teaminput button {
   width: 30px;
-  height: 30px;
+  height: 33px;
   /* margin-inline: 10px; */
 }
 #teaminput {
@@ -118,9 +118,7 @@ button {
   width: 100%;
   align-items: center;
 }
-#addteam {
-  width: 20%;
-}
+
 #assign {
   width: 40%;
   height: 30px;
@@ -184,12 +182,12 @@ button {
   margin-top: 10px;
   padding-block: 5px;
   text-align: center;
-  width: 50px;
+  /* width: 50px; */
   /* height: 20px; */
 }
 .awrapper {
   display: block;
-  width: 200px;
+  /* width: 200px; */
   height: 40px;
   line-height: 40px;
   font-size: 18px;
@@ -251,8 +249,14 @@ button {
   height: 30px;
   border: none;
   text-align: center;
-  border-radius: 20%;
+  /* border-radius: 20%; */
   /* margin-inline: 2px; */
+}
+#teaminput :nth-child(1) {
+  border-radius: 10px 0 0 10px;
+}
+#teaminput :nth-child(3) {
+  border-radius: 0 10px 10px 0;
 }
 
 input[type="number"] {

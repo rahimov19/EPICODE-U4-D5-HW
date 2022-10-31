@@ -88,14 +88,14 @@ let assignOne = function () {
       event.currentTarget.remove();
     });
   }
-  // movedName = cards[teamIndex].appendChild(createName);
+
   movedName = cards[teamIndex].appendChild(createButton);
 
   createSpan.innerText = randomMemberName;
   randomMember.remove();
   teamIndex++;
 };
-// createButton.addEventListener("click", remove());
+
 assignButton.addEventListener("click", assignOne);
 
 let assignEveryone = function () {
