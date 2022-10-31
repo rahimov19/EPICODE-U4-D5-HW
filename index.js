@@ -49,6 +49,9 @@ let addName = function () {
   if (inputName.value !== "") {
     let member = membersField.appendChild(document.createElement("p"));
     member.innerText = inputName.value;
+    member.addEventListener("click", function handleClick(event) {
+      event.currentTarget.remove();
+    });
   }
   inputName.value = "";
 };
@@ -68,6 +71,14 @@ let assignOne = function () {
   let randomMemberName = randomMember.innerText;
   // let createName = document.createElement("p");
   let createButton = document.createElement("div");
+  createButton.addEventListener("click", function nameBack(e) {
+    membersField.appendChild(document.createElement("p")).innerText =
+      e.target.innerText;
+  });
+  createButton.addEventListener("click", function handleClick(event) {
+    event.currentTarget.remove();
+  });
+
   createButton.classList.add("wrapper");
   let createA = document.createElement("a");
   createA.classList.add("awrapper");
@@ -78,16 +89,16 @@ let assignOne = function () {
   if (teamIndex === cards.length) {
     teamIndex = 0;
   }
-  let createButtons = document.querySelectorAll(".teammembers div");
-  for (i = 0; i < createButtons.length; i++) {
-    createButtons[i].addEventListener("click", function nameBack(e) {
-      membersField.appendChild(document.createElement("p")).innerText =
-        e.target.innerText;
-    });
-    createButtons[i].addEventListener("click", function handleClick(event) {
-      event.currentTarget.remove();
-    });
-  }
+  // let createButtons = document.querySelectorAll(".teammembers div");
+  // for (i = 0; i < createButtons.length; i++) {
+  //   createButtons[i].addEventListener("click", function nameBack(e) {
+  //     membersField.appendChild(document.createElement("p")).innerText =
+  //       e.target.innerText;
+  //   });
+  //   createButtons[i].addEventListener("click", function handleClick(event) {
+  //     event.currentTarget.remove();
+  //   });
+  // }
 
   movedName = cards[teamIndex].appendChild(createButton);
 

@@ -83,7 +83,6 @@ body {
 }
 .team {
   width: 33%;
-  /* height: 20%; */
 }
 #down {
   display: flex;
@@ -98,6 +97,8 @@ body {
   border: 1px solid rgb(74, 74, 74);
   box-shadow: 1px 1px 1px rgba(60, 60, 60, 0.429);
   padding-inline: 2%;
+  overflow: auto;
+  /* position: fixed; */
 }
 button {
   background-color: #334df7;
@@ -199,14 +200,23 @@ button {
   text-align: center;
   position: relative;
   transition: all 0.35s;
+  cursor: pointer;
+}
+#members p {
+  height: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
-.awrapper span {
+.awrapper span,
+#members p {
   position: relative;
   z-index: 2;
+  font-weight: 700;
 }
 
-.awrapper:after {
+.awrapper:after,
+#members p::after {
   position: absolute;
   content: "";
   top: 0;
@@ -224,14 +234,14 @@ button {
 .awrapper:hover:after {
   width: 100%;
 }
-@keyframes button {
+/* @keyframes button {
   0% {
     transform: translateX(-100%);
   }
   100% {
     transform: translateX(0%);
-  }
-}
+  } */
+/* } */
 #members p {
   text-align: start;
   border-bottom: 1px solid rgba(0, 0, 0, 0.395);
@@ -243,6 +253,10 @@ button {
   padding-top: 8px;
   color: rgb(31, 0, 67);
   text-shadow: 1px 1px 1px rgba(126, 0, 0, 0.567);
+}
+
+#members p:hover {
+  background: #af2427;
 }
 #teaminput input {
   width: 40px;
